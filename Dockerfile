@@ -1,7 +1,7 @@
 # escape=`
 # copied from source to microsoft/dotnet:2.0-sdk as couldn't get this working on server insiders 13338
 
-FROM microsoft/nanoserver as dotnet2.0_sdk
+FROM microsoft/windowsservercore as dotnet2.0_sdk
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
