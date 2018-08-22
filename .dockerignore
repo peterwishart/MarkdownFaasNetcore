@@ -1,2 +1,6 @@
+.git
+.gitignore
+.dockerignore
+Dockerfile
 bin
 obj
