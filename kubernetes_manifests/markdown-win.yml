@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: markdownrender-win
+  labels:
+    app: markdownrender-win
+spec:
+  type: NodePort
+  ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: 8080
+      nodePort: 31119
+  selector:
+    app: markdownrender-win
+---
+apiVersion: apps/v1beta1 # for versions before 1.6.0 use extensions/v1beta1
+kind: Deployment
+metadata:
+  name: markdownrender-win
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: markdownrender-win
+    spec:
+      containers:
+      - name: markdownrender-win
+        image: peterwishart/markdown:win-17738
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+      nodeSelector:
+        beta.kubernetes.io/os: windows

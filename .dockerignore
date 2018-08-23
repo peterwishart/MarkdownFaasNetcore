@@ -4,3 +4,4 @@
 Dockerfile
 bin
 obj
+kubernetes_manifests
