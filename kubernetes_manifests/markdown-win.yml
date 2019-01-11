@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
       - name: markdownrender-win
-        image: peterwishart/markdown:win-17738
+        image: peterwishart/markdown:win-1809
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
