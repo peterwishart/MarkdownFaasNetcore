@@ -1,7 +1,7 @@
 # escape=`
 # copied from source to microsoft/dotnet:2.0-sdk as couldn't get this working on server insiders 13338
-ARG TAG=1809
-FROM mcr.microsoft.com/windows/servercore:${TAG} as dotnet2.0_sdk
+
+FROM microsoft/windowsservercore as dotnet2.0_sdk
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
@@ -55,7 +55,7 @@ RUN dotnet publish -c release -r win-x64
 
 # -=-=-
 
-FROM mcr.microsoft.com/windows/nanoserver:${TAG} as run
+FROM microsoft/nanoserver as run
 
 COPY --from=build /root/src/bin/release/netcoreapp2.0/win-x64/publish /root/bin
 
